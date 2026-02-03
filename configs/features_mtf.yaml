@@ -1,0 +1,29 @@
+timeframes:
+  base: "15min"
+  mids: ["1H"]
+  highs: ["4H", "1D"]
+
+fvg:
+  k_displacement: 2.0
+  atr_len: 14
+  min_gap_pips: 2.0
+  max_age_bars: 200
+  displacement_method: "atr"  # 'atr' or 'zscore'
+
+smc:
+  swing_w: 3
+  min_exc_atr: 0.5
+  equal_band_pips: 2.0
+  wick_ratio: 0.6
+  disp_k_for_ob: 2.0
+  max_ob_boxes: 3
+
+regime:
+  enabled: true
+  lookback: 100
+  adx_threshold: 25
+
+fusion:
+  mode: "baseline"         # baseline | dual_tower
+  film_conditioning: true
+  htf_context_dim: 20
