@@ -1,0 +1,28 @@
+training:
+  batch_size: 64
+  epochs_per_fold: 30
+  learning_rate: 0.0003
+  weight_decay: 0.01
+  grad_clip: 1.0
+  
+  scheduler:
+    type: cosine
+    warmup_epochs: 3
+    
+  label:
+    horizon_minutes: 30
+    band_pct: 0.10
+    smoothing: 0.05
+    
+  walk_forward:
+    train_months: 6
+    test_months: 1
+    embargo_bars: 120  # ~30 hours at 15m
+    
+  early_stopping:
+    patience: 5
+    metric: sharpe_ratio
+    
+device: cuda
+mixed_precision: true
+num_workers: 4

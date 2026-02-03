@@ -1,0 +1,32 @@
+model:
+  name: cnn_bilstm_attn
+  window: 256
+  features: 80         # 15m:40 + 1H:20 + 4H/1D:20
+  
+  conv:
+    blocks: 2
+    channels: [32, 64]
+    kernel_size: 5
+    dropout: 0.1
+    
+  lstm:
+    layers: 2
+    hidden: 192
+    bidirectional: true
+    dropout: 0.2
+    
+  attention:
+    type: additive
+    dim: 64
+    
+  head:
+    hidden: 128
+    
+  num_classes: 3
+  
+  conditioning:
+    film_from_htf: true
+    htf_dim: 20
+
+mixed_precision: true
+compile: false  # torch.compile for PyTorch 2.0+
